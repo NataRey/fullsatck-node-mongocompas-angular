@@ -180,14 +180,77 @@ servidor.use('/imagenes', express.static(path.resolve(`imagenes`)));
 * PUT http://localhost:3000/users/idamodificar 
 * DELETE http://localhost:3000/users/idaeliminar
 
-23. para poder recuperar la contrasena importamos 
+23. para poder recuperar la contrasena instalamos
 * npm i randomstring
 * npm i nodemailer
-y hacemos cambios en nuestro controlador y nuestras rutas 
+hacemos cambios en nuestro controlador y nuestras rutas 
 
+24. en el controlador importo randostring y nodemailer
+
+# controllerUsers
+* paso 6 creo una funcion para generar una nueva contraseña en caso de olvido, en esta funcion voy a llamar al esquema de usuario donde lo busque por correo
+* Paso 7 luego que tenga los datos de este genero una contraseña aleatoria la cual se va a enviar por correo al correo registrado
+* paso 8 ahora voy a la rutas para realizar el enrutamiento creando un archivo para enrutar los usuarios
+
+25. hacemos cambios en nuestro controlador y nuestras rutas 
 # routerUsers.js
 * ingreso el siguiente codigo
 routerUsers.post('/forgot-password', async(sol, res)=>{
     const{email} = sol.body;
 });
+
+
+26. ahora vamos al fron a crear los diferenes componentes
+
+## FRONT
+
+27. Instalar angular con el comando npm install -g @angular/cli
+28. ng new seguido por el nombre del proyecto en este caso front en la primera opcion selecciono CSS y luego YES
+el cli de angular instala los paquetes del npm y otras dependencias 
+29. navegar hasta la carpeta del espacio  de trabajo en front cd front 
+30. ejecuto ng serve --open
+
+## CREACION DE COMPONENTES 
+
+31. comando ng generate component para ser mas organizado con tu codigo es recomendable crear carpetas indicando si son componentes o interfaces o servicios o guards dependiendo de la necesidad de tu proyecto y luego nombre del componente
+* abreviado ng g c carpeta/nombre del componente--skip-tests
+
+## APP.COMPONENT
+* Este es el componente raiz de la aplicacion aqui podemos poner la informacion que queremos que se visualice en nuesta primera pagina 
+* este componente tiene un diseño por defecto alli podemos borrar todo ese diseño previo y solo dejar <router-outlet /> como nos lo indica el archivo 
+* como el primero que quiero poner es el nav voy a importarlo en el app.componet.ts tomo el nombre de la clase en este caso NavbarComponent  adicional a eso lo activo en los imports y luego en el app.component.html llamo al selector de mi nav en este caso es app-navbar
+
+# USO DE BOOSTRAP
+
+* para usar bootstrap en nuestra aplicacion podemos agregarlo a las dependencias instalandolo y realizando los siguientes cambios vamos ala pagina https://getbootstrap.com/ y en docs sacamos el npm i bootstrap@5.3.3
+* para isar os iconos de bootstrap vamos al apartado iconos y tomamos el npm i bootstrap-icons
+* luego de instalar las dependencias vamos a nuestro archivo angular.json anexar:
+"styles": [
+              "node_modules/bootstrap/scss/bootstrap.scss",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.min.css",
+              "node_modules/ngx-toastr/toastr.css",
+              "src/styles.css"
+            ],
+"scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ],
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
